@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ioannis Makris</title>
+        <meta name="robots" content="index, follow">
+        <meta name="keywords" content="Ioannis Makris">
+        <meta name="description" content="Ioannis Makris">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="shortcut icon" href="#" />
+
+<style>
+body, html, h1, h2, h3, h4, h5, h6 {
+    height: 100%;
+    margin: 0;
+    color: rgb(255,255,255);
+    font-family: "Arial";
+}
+
+
+.centertop {
+    font-size: 25px;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    text-align: left;
+}
+
+
+hr {
+    margin: auto;
+    width: 40%;
+}
+
+
+body {
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Monospace;
+    font-size: 13px;
+    line-height: 24px;
+}
+
+a {
+    color: #ff0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+canvas {
+    display: block;
+}
+
+#info {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+}
+
+a, button, input, select {
+    pointer-events: auto;
+}
+
+.dg.ac {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 2;
+}
+
+
+</style>
+    </head>
+    <body>
+
+        <div id="container"></div>
+
+        <div class="centertop">
+            <h6>
+            <a href="https://github.com/imakris"><img border="0" src="github-512.png" width="48" height="48"></a> <br>
+            Ioannis Makris <br>
+            info@imakris.de<br>
+            </h6>
+        </div>
+
+        <script id="vertexShader" type="x-shader/x-vertex">
+            varying vec2 vUv;
+
+            void main()    {
+                vUv = uv;
+                gl_Position = vec4( position, 1.0 );
+            }
+        </script>
+
+        <script id="fragmentShader" type="x-shader/x-fragment">
+
+            #ifdef GL_ES
+            precision highp float;
+            #endif
+
+            #extension GL_OES_standard_derivatives : enable
+
+            #define tri(t, scale, shift) ( abs(t * 2. - 1.) - shift ) * (scale)
+
+            uniform float time;
+            uniform vec2 resolution;
+
+            float dtime = 1.5 * float(int(time * 12.)) / 12.;
+            vec3 theme_color = vec3(0.680,0.325,0.995);
+
+            float smin(float a, float b, float k)
+            {
+                float h = clamp(0.5 + 0.5 * (b - a*a) / k, 0.0, 1.0);
+                return mix(b, a, h) - k * h * (1.0 - h);
+            }
+
+            vec3 draw_sun(vec2 frag_coord)
+            {
+                vec2 R = resolution.xy;
+                vec2 uv = (frag_coord - 0.5 * R) / R.y*1.8 + vec2(0.5, 0.7);
+                
+                // sun
+                float dist = length(uv - vec2(0.5,0.7));
+                float divisions = 6.0;
+                float divisionsShift= 0.5;
+                float pattern = tri(fract((uv.y - dtime / 20.) * 20.0), 2.0 / divisions, divisionsShift)- (-uv.y + 0.46) * 0.85;
+                float sunOutline = smoothstep(0.0, -0.015, max(dist - 0.25, -pattern));
+                vec3 colour = sunOutline * mix(vec3(4.0, 0.0, 0.2), vec3(1.0, 1.1, 0.0), uv.y);  
+                
+                // glow 
+                float glow = max(0.0, 1.0 - dist * 1.25);
+                glow = min(glow * glow * glow, 0.325);
+                colour += glow * vec3(1.5, 0.3, (sin(dtime)+ 1.0)) * 1.1;
+                
+                return colour;
+            }
+
+
+            vec3 draw_borders(vec2 st,vec3 color,vec3 target_color)
+            {
+                float mix_value = smoothstep(0.345,0.35,st.y)-smoothstep(0.35,0.355,st.y);
+                return mix(color,target_color,mix_value);
+            }
+
+            vec3 draw_hlines(vec2 st,vec3 color,vec3 target_color)
+            {
+                float dist = 0.0;
+                
+                if(st.y <= 0.35){
+                    dist = 0.45 - st.y;
+                }else{
+                    return color;
+                }
+                
+                float func_value1 = sin(dtime*3.0 + 3.5/dist - 0.2);
+                float func_value2 = sin(dtime*3.0 + 3.5/dist + 0.2);
+                float mix_value = func_value1*func_value2<0.0 ? 1.0 : 0.0;
+                
+                if(mix_value < 0.9){
+                    mix_value = 0.0;
+                }else if(mix_value < 0.95){
+                    mix_value = (mix_value - 0.9) * 20.0;
+                }
+                
+                return mix(color,target_color,mix_value);
+            }
+
+            vec3 draw_vlines(vec2 st,vec3 color,vec3 target_color)
+            {
+                if(st.y > 0.35)return color;
+                
+                float mix_value = 1.0 - abs(cos((0.5-st.x)/abs(0.5-st.y*1.3)/9.0 * 30.0))+0.02;
+                
+                if(mix_value < 0.9){
+                    mix_value = 0.0;
+                }else if(mix_value < 0.95){
+                    mix_value = (mix_value - 0.9) * 20.0;
+                }
+                
+                return mix(color,target_color,mix_value);
+            }
+
+
+            // BEGIN STARFIELD
+            float h(float i)
+            {
+                return fract(pow(3., sqrt(i/2.)));
+            }
+            // END STARFIELD
+
+
+            // BEGIN distortion
+            float rand(vec2 co){
+                return fract(sin(dot(co.xy ,vec2(12.9898,78.233)*3.141)) * 43758.5453);
+            }
+            // END distortion
+
+
+            void main()
+            {    
+                vec2 st = gl_FragCoord.xy/resolution.xy;
+                
+                // BEGIN distortion
+                float horz_wav_strength = .01;
+                float horz_wav_screen_size = 5.0;
+                float horz_wav_vert_size = 100.0;
+                float dotted_noise_strength = 0.07;
+                float horz_dist_strength = 1.0 / 400.0;
+             
+                vec2 uv = gl_FragCoord.xy / resolution.xy;
+                vec2 uv_org = vec2(uv);
+
+                float x=uv.x;
+                float y=uv.y;
+
+                float time360 = mod(time, 360.0);
+                float time216 = floor(time360*0.6);
+
+                float rand1 = rand(vec2(time360,time360));
+                float rand2 = rand(vec2(time360,rand1));
+
+                float rand1xy = rand(vec2(rand1*x,rand2*y));
+                float rand2xy = rand(vec2(rand1*y,rand2*x));
+              
+                float rand1x = rand(vec2(rand1*x,rand2));
+                float rand1y = rand(vec2(rand1*y,rand2));
+                float rand2y = rand(vec2(rand1y,rand1y));
+                    
+                x=uv.x-rand1*rand2*horz_wav_strength*exp(-pow((y-rand1)*horz_wav_vert_size,2.0)/horz_wav_screen_size);
+                y=uv.y;
+                    
+                uv.x = x + rand1y * horz_dist_strength * sin(y*3.141);
+                uv.y=y;
+
+                st = uv;
+                // END distortion
+                
+                // BEGIN main stuff
+                vec3 color = draw_sun(st * resolution.xy);
+                
+                vec2 stu = vec2(st.x, 1.-st.y);
+                
+                color = draw_borders(st,color,theme_color);
+                color = draw_borders(stu,color,theme_color);
+                color = draw_hlines(st,color,theme_color);
+                color = draw_hlines(stu,color,theme_color);
+                color = draw_vlines(st,color,theme_color);
+                color = draw_vlines(stu,color,theme_color);
+                vec4 c1 = vec4(color, 1.0);
+                // END main stuff
+                
+                
+                // BEGIN starfield
+                vec2 p=st * resolution.xy *2.-resolution;
+                float a=floor(degrees(4.+atan(p.y,p.x))*2.)/4.;
+                float d=pow(2.,-10.*fract(0.2*dtime*(h(a+.5)*-.1-.1)-h(a)*1000.));
+                
+                vec4 c2 = (d>0.2 && abs(length(p)-d*length(resolution)) < d*4.) ? vec4(d*(h(a+.5)*3.)) : vec4(0.);
+                // END starfield
+                
+                gl_FragColor = c1 + c2;
+                
+                if (((rand2y/100.0>rand1y))) {
+                    if ((rand2xy<dotted_noise_strength)) {
+                        gl_FragColor = vec4(rand1xy, rand1xy, rand1xy,0.0);
+                    }
+                }
+                
+            }
+        </script>
+
+        <script type="module">
+
+            import * as THREE from './three.module.js';
+            var container;
+            var camera, scene, renderer;
+
+            var uniforms = {
+                time: { type: "f", value: 1.0 },
+                resolution: { type: "v2", value: new THREE.Vector2() }
+            };
+
+            init();
+            animate();
+
+            function init()
+			{
+                container = document.getElementById( 'container' );
+                camera = new THREE.OrthographicCamera( - 1, 1, 1, - 1, 0, 1 );
+                scene = new THREE.Scene();
+                var geometry = new THREE.PlaneBufferGeometry( 2, 2 );
+
+                var material = new THREE.ShaderMaterial( {
+                    uniforms: uniforms,
+                    vertexShader: document.getElementById( 'vertexShader' ).textContent,
+                    fragmentShader: document.getElementById( 'fragmentShader' ).textContent
+                } );
+
+                var mesh = new THREE.Mesh( geometry, material );
+                scene.add( mesh );
+
+                renderer = new THREE.WebGLRenderer();
+                renderer.setPixelRatio( window.devicePixelRatio );
+                container.appendChild( renderer.domElement );
+
+                onWindowResize();
+                window.addEventListener( 'resize', onWindowResize, false );
+            }
+
+            function onWindowResize()
+			{
+                var dpr = window.devicePixelRatio; 
+                renderer.setSize( window.innerWidth , window.innerHeight );
+                uniforms.resolution.value.x = window.innerWidth * window.devicePixelRatio;
+                uniforms.resolution.value.y = window.innerHeight * window.devicePixelRatio;
+            }
+            
+
+            function animate( timestamp )
+			{
+				onWindowResize();
+                requestAnimationFrame( animate );
+                uniforms[ "time" ].value = timestamp / 1000;
+                renderer.render( scene, camera );
+            }
+        </script>
+
+    </body>
+</html>
