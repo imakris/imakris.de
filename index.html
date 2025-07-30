@@ -1,253 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Basic Meta Tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="description" content="Ioannis Makris">
-    <meta name="keywords" content="Ioannis Makris">
-    <meta name="robots" content="index, follow">
-    <title>Ioannis Makris</title>
-    <link rel="shortcut icon" href="#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ioannis Makris - Software Engineer & Consultant</title>
 
-    <!-- Embedded CSS Styles -->
+    <!-- SEO & Social Media Meta Tags -->
+    <meta name="description" content="Ioannis Makris, a C++/Qt software engineer and consultant based in Berlin, with 20 years of experience building full-stack applications for scientific, medical, and industrial instruments.">
+    <meta property="og:title" content="Ioannis Makris - Software Engineer & Consultant">
+    <meta property="og:description" content="Specializing in full-stack C++/Qt applications for scientific, medical, and industrial hardware.">
+    <meta property="og:type" content="website">
+
+    <!-- Embedded SVG Favicon (Correctly Encoded) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231e1e1e' stroke='%23444' stroke-width='2' /%3E%3Ctext x='50%25' y='62%25' font-size='18' text-anchor='middle' fill='%236fa9ff' font-family='-apple-system, sans-serif' font-weight='600'%3EIM%3C/text%3E%3C/svg%3E">
+
     <style>
-      /* General page styling */
-      body {
-        margin: 0;
-        background-color: #000;
-        color: #fff;
-        font-family: monospace;
-        font-size: 13px;
-        line-height: 24px;
-      }
-      /* Styling for the info block at the bottom left */
-      .centertop {
-        font-size: 25px;
-        position: absolute;
-        bottom: 5%;
-        left: 5%;
-        text-align: left;
-      }
-      /* Link and button styling */
-      a {
-        color: #ff0;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      button {
-        cursor: pointer;
-        text-transform: uppercase;
-      }
-      /* Ensure canvas displays as block element */
-      canvas {
-        display: block;
-      }
+        :root {
+            --bg-color: #1e1e1e;
+            --text-color: #d4d4d4;
+            --header-color: #ffffff;
+            --accent-color: #6fa9ff;
+            --border-color: #444;
+            --card-bg-color: #2a2a2a;
+        }
+        
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem 2.5rem;
+        }
+        
+        h1, h2 {
+            color: var(--header-color);
+            font-weight: 600;
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.4em;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            border-bottom: none;
+            margin-top: 0;
+            margin-bottom: 0.2em;
+        }
+
+        h2 { font-size: 1.8rem; }
+        
+        h3 {
+            color: var(--header-color);
+            font-size: 1.5rem; /* Increased size for better hierarchy */
+            margin-top: 0;
+            margin-bottom: 0.5em;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover { text-decoration: underline; }
+        a:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; border-radius: 2px; }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        
+        header .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        nav.top-nav a {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            margin: 0 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        main { display: block; }
+
+        .portfolio-note {
+            font-style: italic;
+            border-left: 3px solid var(--border-color);
+            padding: 0.1em 1.5em;
+            margin: 2.5em 0;
+            color: #aaa;
+        }
+        
+        .project-card {
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .project-meta {
+            color: #aaa;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 0;
+            margin-bottom: 1.5em;
+        }
+
+        ul { padding-left: 20px; margin-top: 1em; }
+        li { margin-bottom: 0.8rem; }
+        
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        
+        footer .secondary-nav a { margin: 0 1em; }
+        footer .copyright { margin-top: 1.5em; font-size: 0.8em; color: #777; }
+
+        .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+        .skip-link:focus { position: static; width: auto; height: auto; margin: 1rem auto 0; background: var(--accent-color); color: #000; padding: .4rem .8rem; border-radius: 4px; text-decoration: none; }
     </style>
+</head>
+<body>
+    <a href="#about" class="skip-link">Skip to main content</a>
+    <div class="container">
+        
+        <header>
+            <h1>Ioannis Makris</h1>
+            <p class="subtitle">Software Engineer &amp; Consultant · Berlin, Germany</p>
+            <nav class="top-nav" aria-label="Main Navigation">
+                <a href="Makris_CV_EN_2025.pdf" target="_blank" rel="noopener noreferrer">Download CV</a> 
+                <a href="mailto:info@imakris.de">Email</a> 
+                <a href="https://github.com/imakris" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </nav>
+        </header>
 
-    <!-- Vertex Shader Script -->
-    <script id="vertexShader" type="x-shader/x-vertex">
-      // Pass UV coordinates to fragment shader
-      varying vec2 vUv;
-      void main() {
-          vUv = uv;
-          gl_Position = vec4(position, 1.0);
-      }
-    </script>
+        <main>
+            <section id="about">
+                <p>
+                    For the past 20&nbsp;years, my work has focused on building complete, marketable software products, often for specialized hardware. As a solo engineer, I handle the full software stack for scientific, medical, and industrial instruments, from low-level hardware communication to the user interface.
+                </p>
+                <p>
+                    My development philosophy is grounded in creating tangible value. This extends beyond writing clean, maintainable code to include the direct, honest technical advice necessary to ensure a client's goals are met and their investment is respected.
+                </p>
+				<p>
+				    Based in Berlin, I am available for remote contracts, with occasional on-site visits where required.
+				</p>
+            </section>
 
-    <!-- Fragment Shader Script -->
-    <script id="fragmentShader" type="x-shader/x-fragment">
-      /* Basic setup and precision */
-      #ifdef GL_ES
-      precision highp float;
-      #endif
-      #extension GL_OES_standard_derivatives : enable
-      
-      #define tri(t, scale, shift) ( abs(t * 2. - 1.) - shift ) * (scale)
-      uniform float time;
-      uniform vec2 resolution;
-      
-      float dtime = 1.5 * float(int(time * 12.)) / 12.;
-      vec3 theme_color = vec3(0.680, 0.325, 0.995);
-      
-      float smin(float a, float b, float k) {
-          float h = clamp(0.5 + 0.5 * (b - a * a) / k, 0.0, 1.0);
-          return mix(b, a, h) - k * h * (1.0 - h);
-      }
-      
-      vec3 draw_sun(vec2 frag_coord) {
-          vec2 R = resolution.xy;
-          vec2 uv = (frag_coord - 0.5 * R) / R.y * 1.8 + vec2(0.5, 0.7);
-          float dist = length(uv - vec2(0.5, 0.7));
-          float divisions = 6.0;
-          float divisionsShift = 0.5;
-          float pattern = tri(fract((uv.y - dtime / 20.0) * 20.0), 2.0 / divisions, divisionsShift) - (-uv.y + 0.46) * 0.85;
-          float sunOutline = smoothstep(0.0, -0.015, max(dist - 0.25, -pattern));
-          vec3 colour = sunOutline * mix(vec3(4.0, 0.0, 0.2), vec3(1.0, 1.1, 0.0), uv.y);
-          float glow = max(0.0, 1.0 - dist * 1.25);
-          glow = min(glow * glow * glow, 0.325);
-          colour += glow * vec3(1.5, 0.3, (sin(dtime) + 1.0)) * 1.1;
-          return colour;
-      }
-      
-      vec3 draw_borders(vec2 st, vec3 color, vec3 target_color) {
-          float mix_value = smoothstep(0.345, 0.35, st.y) - smoothstep(0.35, 0.355, st.y);
-          return mix(color, target_color, mix_value);
-      }
-      
-      // horizontal lines
-      vec3 draw_hlines(vec2 st, vec3 color, vec3 target_color) {
-          float dist = 0.0;
-          if (st.y <= 0.35) {
-              dist = 0.45 - st.y;
-          }
-		  else {
-              return color;
-          }
-          float func_value1 = sin(dtime * 3.0 + 3.5 / dist - 0.2);
-          float func_value2 = sin(dtime * 3.0 + 3.5 / dist + 0.2);
-          float mix_value = (func_value1 * func_value2 < 0.0) ? 1.0 : 0.0;
-          if (mix_value < 0.9) {
-              mix_value = 0.0;
-          }
-		  else
-		  if (mix_value < 0.95) {
-              mix_value = (mix_value - 0.9) * 20.0;
-          }
-          return mix(color, target_color, mix_value);
-      }
-      
-      // vertical lines
-      vec3 draw_vlines(vec2 st, vec3 color, vec3 target_color) {
-          if (st.y > 0.35) return color;
-          float mix_value = 1.0 - abs(cos((0.5 - st.x) / abs(0.5 - st.y * 1.3) / 9.0 * 30.0)) + 0.02;
-          if (mix_value < 0.9) {
-              mix_value = 0.0;
-          }
-		  else
-		  if (mix_value < 0.95) {
-              mix_value = (mix_value - 0.9) * 20.0;
-          }
-          return mix(color, target_color, mix_value);
-      }
-      
-      float h(float i) {
-          return fract(pow(3.0, sqrt(i / 2.0)));
-      }
-      
-      float rand(vec2 co) {
-          return fract(sin(dot(co.xy, vec2(12.9898, 78.233) * 3.141)) * 43758.5453);
-      }
-      
-      void main() {
-          vec2 st = gl_FragCoord.xy / resolution.xy;
-          
-          // Distortion parameters and initial UV adjustments
-          float horz_wav_strength = 0.01;
-          float horz_wav_screen_size = 5.0;
-          float horz_wav_vert_size = 100.0;
-          float dotted_noise_strength = 0.07;
-          float horz_dist_strength = 1.0 / 400.0;
-          vec2 uv = gl_FragCoord.xy / resolution.xy;
-          float x = uv.x;
-          float y = uv.y;
-          float time360 = mod(time, 360.0);
-          float rand1 = rand(vec2(time360, time360));
-          float rand2 = rand(vec2(time360, rand1));
-          float rand1xy = rand(vec2(rand1 * x, rand2 * y));
-          float rand2xy = rand(vec2(rand1 * y, rand2 * x));
-          float rand1y = rand(vec2(rand1 * y, rand2));
-          float rand2y = rand(vec2(rand1y, rand1y));
-          x = uv.x - rand1 * rand2 * horz_wav_strength * exp(-pow((y - rand1) * horz_wav_vert_size, 2.0) / horz_wav_screen_size);
-          uv.x = x + rand1y * horz_dist_strength * sin(y * 3.141);
-          st = uv;
-          
-          // sun and lines
-          vec3 color = draw_sun(st * resolution.xy);
-          vec2 stu = vec2(st.x, 1.0 - st.y);
-          color = draw_borders(st, color, theme_color);
-          color = draw_borders(stu, color, theme_color);
-          color = draw_hlines(st, color, theme_color);
-          color = draw_hlines(stu, color, theme_color);
-          color = draw_vlines(st, color, theme_color);
-          color = draw_vlines(stu, color, theme_color);
-          vec4 c1 = vec4(color, 1.0);
-          
-          // starfield
-          vec2 p = st * resolution.xy * 2.0 - resolution;
-          float a = floor(degrees(4.0 + atan(p.y, p.x)) * 2.0) / 4.0;
-          float d = pow(2.0, -10.0 * fract(0.2 * dtime * (h(a + 0.5) * -0.1 - 0.1) - h(a) * 1000.0));
-          vec4 c2 = (d > 0.2 && abs(length(p) - d * length(resolution)) < d * 4.0)
-                    ? vec4(d * (h(a + 0.5) * 3.0))
-                    : vec4(0.0);
-          gl_FragColor = c1 + c2;
-          
-          // noise
-          if ((rand2y / 100.0 > rand1y) && (rand2xy < dotted_noise_strength)) {
-              gl_FragColor = vec4(rand1xy, rand1xy, rand1xy, 0.0);
-          }
-      }
-    </script>
-  </head>
-  <body>
-    <!-- Container for Three.js rendering -->
-    <div id="container"></div>
-    
-    <!-- Info block with contact details -->
-    <div class="centertop">
-      <h6>
-        <a href="https://github.com/imakris">
-          <img src="github-512.png" alt="GitHub" width="48" height="48">
-        </a>
-        <br>
-        Ioannis Makris<br>
-        info@imakris.de<br>
-      </h6>
+            <section id="portfolio" aria-labelledby="portfolio-title">
+                <h2 id="portfolio-title">Selected Projects</h2>
+                
+                <div class="portfolio-note">
+                    <p><strong>A Note on This Portfolio</strong></p>
+                    <p>The projects below are a selection of work chosen specifically because some aspect of each has been made publicly available by the client or employer.</p>
+                    <p>Much of a 20-year career in specialized software development involves projects that are internal, proprietary, or covered by strict non-disclosure agreements. That work cannot be shown. This portfolio, therefore, highlights what can be shared, while committing to client confidentiality.</p>
+                </div>
+                
+                <article class="project-card" aria-labelledby="p1-title">
+                    <h3 id="p1-title">Full Software Stack for the hiXAS Laboratory Spectrometer</h3>
+                    <p class="project-meta"><strong>Client:</strong> HP Spectroscopy GmbH</p>
+                    <p>HP Spectroscopy required a complete, production-grade software suite for their hiXAS system, a turn-key instrument for laboratory-based X-ray Absorption Spectroscopy (XAS).</p>
+                    <p>The engagement involved a multi-year, sole-developer effort to architect, build, and continuously evolve the entire proprietary software stack for the product.</p>
+                    <ul>
+                        <li><strong>Full-Stack Development:</strong> The system was built from the ground up as a multi-layered C++ application with a Qt/QML front-end, supported by a Python ecosystem for data analysis scripting.</li>
+                        <li><strong>Complex Hardware Integration:</strong> Core modules were developed to provide robust, low-level control for a diverse set of hardware components, including multiple motor controllers (OWIS, PS90), scientific detectors (DECTRIS, Greateyes), and cameras.</li>
+                        <li><strong>Codebase Health and Longevity:</strong> As the project evolved, a continuous focus was placed on maintaining the long-term health of the codebase. This involved ongoing architectural refinement and a comprehensive effort to identify and resolve systemic issues, such as memory leaks, deadlocks, and race conditions.</li>
+                        <li><strong>High-Performance Module Rewrite:</strong> A critical, third-party Python script for post-acquisition analysis was identified as a major performance bottleneck. A new high-performance analysis module was developed from the ground up to achieve the same scientific objectives. The new implementation <strong>reduced the data processing time by over 90%</strong>.</li>
+                        <li><strong>International Support:</strong> The role included providing expert-level remote diagnostics and support for instruments deployed at research facilities internationally.</li>
+                    </ul>
+                    <p>• <strong>Official Product Page:</strong> <a href="https://www.hp-spectroscopy.com/xas-exafs" target="_blank" rel="noopener noreferrer">hiXAS - Laboratory X-ray Absorption Spectrometer</a></p>
+                </article>
+
+                <article class="project-card" aria-labelledby="p2-title">
+                    <h3 id="p2-title">Commercial Software Suite for Advanced Ultrasonic Sensors</h3>
+                    <p class="project-meta"><strong>Client:</strong> Sonotec GmbH</p>
+                    <p>A leader in ultrasonic measurement technology, Sonotec relied on a 20-year-old internal Delphi tool. While functional for R&D, this expert-only software was not user-friendly, maintainable, or suitable for commercial sale. The business objective was to create a modern, robust, and marketable software product to be sold as a complete package with their new line of smart sensors.</p>
+                    <p>The project involved building a new software product from the ground up. The work required a multi-faceted approach, combining comprehensive legacy system analysis with modern application architecture.</p>
+                    <ul>
+                        <li><strong>Undocumented Protocol Analysis:</strong> The true operational logic was found not in formal documentation but embedded within the undocumented legacy Delphi application. The project therefore began with a fundamental analysis of this codebase to reverse-engineer the memory-map-based communication protocols, which became the essential foundation for the new application.</li>
+                        <li><strong>Modern Multi-Device Architecture:</strong> A new software platform was architected and built using modern C++ and a Qt/QML front-end. Key architectural improvements included designing the system to manage and visualize data from multiple sensors simultaneously, a significant upgrade over the single-device limitation of the legacy tool, and creating a robust, separated C++ communication library to handle all hardware interaction.</li>
+                        <li><strong>User Experience Transformation:</strong> The highly technical workflow of the old tool was translated into an intuitive graphical interface. This work streamlined the entire process of sensor configuration, data acquisition, and real-time visualization, making the technology accessible to a broader user base of lab technicians and scientists.</li>
+                    </ul>
+                    <p>The resulting product, officially branded by the client as SONOflow C3, successfully replaced the internal legacy tool. It served for several years as the company's flagship software for this sensor line, empowering them to sell a complete, user-friendly "smart sensor package" to new markets.</p>
+                    <p>The software is demonstrated in official company materials:</p>
+                    <p>
+                        • <strong>Announcement:</strong> <a href="https://www.sonotec.de/aktuelles/news/nicht-invasive-sonoflow-flow-sensoren-und-sonoflow-c3-software-das-anwenderfreundliche-smart-sensor-paket-zur-applikation-in-labor-40-fe-und-single-use-produktionsumgebungen/" target="_blank" rel="noopener noreferrer">SONOflow C3 Software</a> <br>
+                        • <strong>Video Tutorial:</strong> <a href="https://www.youtube.com/watch?v=CIR7O5w5Bjc" target="_blank" rel="noopener noreferrer">SONOflow C0.55 and the C³&nbsp;Software</a>
+                    </p>
+                </article>
+                
+                <article class="project-card" aria-labelledby="p3-title">
+                    <h3 id="p3-title">Expert Maintenance of a Mature E-Learning Authoring Suite</h3>
+                    <p class="project-meta"><strong>Client:</strong> IMC AG</p>
+                    <p>IMC AG, a leading provider for digital training, needed to ensure the long-term stability and continued relevance of its mature "Content Studio" authoring software. With a large customer base reliant on the product, the core objective was to retain these clients by supporting the existing application while internal teams focused on next-generation platforms.</p>
+                    <p>The engagement centered on sole development ownership of a vast C++ codebase, comparable in scope to major desktop publishing applications and developed over nearly a decade by a large team.</p>
+                    <ul>
+                        <li><strong>Codebase Stewardship:</strong> The core of the work was to quickly master the large and complex legacy codebase, serving as the single point of contact for all technical maintenance and feature enhancement.</li>
+                        <li><strong>Application Stabilization:</strong> Identifying and fixing numerous deep-rooted bugs that emerged under heavy, enterprise-level usage, which significantly increased the application's reliability.</li>
+                        <li><strong>Continued Development:</strong> Targeted new features were implemented based on specific user requests, extending the product's commercial lifecycle and ensuring it remained valuable to its user base.</li>
+                    </ul>
+                    <p>The work successfully extended the product's commercial lifecycle during a critical period. This ensured business continuity and allowed the company to retain its customer base while internal teams focused on new development. The professional scope of the application is demonstrated in the company's official library of tutorials:</p>
+                    <p>• <strong>Tutorial Playlist:</strong> <a href="https://www.youtube.com/playlist?list=PL9Lm7IHzcJree12lHMa8neIL-gicZ2NYL" target="_blank" rel="noopener noreferrer">"Content Studio Tutorials" by IMC AG</a></p>
+                </article>
+
+                <article class="project-card" aria-labelledby="p4-title">
+                    <h3 id="p4-title">Interactive OpenGL Rendering Engines &amp; Systems</h3>
+                    <p class="project-meta"><strong>Employer:</strong> NVIDIA (formerly Mental Images)</p>
+                    <p>As a Software Engineer within NVIDIA's Mental Images division in Berlin, my work centered on the design, implementation, and leadership of advanced OpenGL rendering technologies for the company's rendering software team.</p>
+                    <p>The role involved several key responsibilities that were instrumental in shaping the user-facing components of products like RealityServer:</p>
+                     <ul>
+                        <li><strong>High-Quality Interactive Renderer:</strong> Design and development of an OpenGL-based interactive renderer that included high-quality, real-time effects such as Screen Space Ambient Occlusion (SSAO), built on the MetaSL shading language.</li>
+                        <li><strong>iray Preview Engine:</strong> Development of the high-performance OpenGL-based preview renderer for the physically-based <strong>iray</strong> engine. The technical challenge was to match the visual output of <strong>iray</strong>, while maintaining interactive frame rates.</li>
+                        <li><strong>Technical Ownership:</strong> The role included personally leading the maintenance and ongoing development of the group's OpenGL-based rendering technology.</li>
+                        <li><strong>Cross-Platform GPU Systems:</strong> Design and implementation of a critical, cross-platform system for the automatic detection and enumeration of available GPUs on Windows, Linux, and Mac OS X.</li>
+                    </ul>
+                    <p>This work was crucial for delivering the interactive, "instant-on" user experience for a computationally intensive rendering platform. Its impact is documented in archival industry articles:</p>
+                    <p>• <strong>Industry Coverage:</strong> <a href="https://www.hpcwire.com/2010/07/26/nvidia_serves_up_reality_gpu-style/" target="_blank" rel="noopener noreferrer">HPCwire: "NVIDIA Serves Up Reality, GPU-Style"</a></p>
+                </article>
+
+                <article class="project-card" aria-labelledby="p5-title">
+                    <h3 id="p5-title">Innovative Sketch-Based UI for DICOM Hanging Protocols</h3>
+                    <p class="project-meta"><strong>Employer:</strong> Digital Medics GmbH (Defunct Startup)</p>
+                    <p>At the medical imaging startup Digital Medics, the work focused on fundamentally rethinking and simplifying a core workflow for radiologists. In digital radiology, setting up "hanging protocols", the on-screen layout of different medical image series, was a rigid and menu-driven process. The goal was to replace this cumbersome workflow with a fast, intuitive, and user-centric solution.</p>
+                    <p>A pioneering feature was developed for the company's "VivoLab" DICOM software, designed to leverage the natural interaction of a Wacom Cintiq pen display.</p>
+                    <ul>
+                        <li><strong>Sketch-to-Grid Engine:</strong> This key feature allowed a radiologist to simply draw lines on a blank canvas. The software would intelligently interpret the freehand strokes and instantly generate the corresponding grid of panels for image display.</li>
+                        <li><strong>Fluid Workflow:</strong> The sketch-based setup was integrated with drag-and-drop assignment of imaging modalities and a one-click application, enabling clinicians to create complex, bespoke layouts in seconds.</li>
+                    </ul>
+                    <p>This feature was a forward-thinking innovation in user experience for clinical software in its era. It is publicly demonstrated in an official case study video produced by Wacom:</p>
+                    <p>• <strong>Case Study Video:</strong> <a href="https://www.youtube.com/watch?v=cOIuM2rxR1k" target="_blank" rel="noopener noreferrer">Wacom Cintiq in Radio Oncology</a></p>
+                </article>
+                
+            </section>
+        </main>
+        
+        <footer>
+            <div class="secondary-nav">
+                <a href="https://www.linkedin.com/in/makris/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.freelance.de/Freelancer/176333" target="_blank" rel="noopener noreferrer">freelance.de (testimonials)</a>
+            </div>
+            <p class="copyright">&copy; 2024 Ioannis Makris</p>
+        </footer>
+
     </div>
-    
-    <!-- Main JavaScript: Three.js setup and animation -->
-    <script type="module">
-      import * as THREE from './three.module.js';
-      let container, camera, scene, renderer;
-      const uniforms = {
-          time: { type: "f", value: 1.0 },
-          resolution: { type: "v2", value: new THREE.Vector2() }
-      };
-      init();
-      animate();
 
-      function init() {
-          container = document.getElementById('container');
-          camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-          scene = new THREE.Scene();
-          const geometry = new THREE.PlaneBufferGeometry(2, 2);
-          const material = new THREE.ShaderMaterial({
-              uniforms: uniforms,
-              vertexShader: document.getElementById('vertexShader').textContent,
-              fragmentShader: document.getElementById('fragmentShader').textContent
-          });
-          const mesh = new THREE.Mesh(geometry, material);
-          scene.add(mesh);
-          renderer = new THREE.WebGLRenderer();
-          renderer.setPixelRatio(window.devicePixelRatio);
-          container.appendChild(renderer.domElement);
-          window.addEventListener('resize', onWindowResize, false);
-          onWindowResize();
-      }
-
-      function onWindowResize() {
-          renderer.setSize(window.innerWidth, window.innerHeight);
-          uniforms.resolution.value.x = window.innerWidth * window.devicePixelRatio;
-          uniforms.resolution.value.y = window.innerHeight * window.devicePixelRatio;
-      }
-
-      function animate(timestamp) {
-          requestAnimationFrame(animate);
-          uniforms.time.value = timestamp / 1000;
-          renderer.render(scene, camera);
-      }
-    </script>
-  </body>
+</body>
 </html>
