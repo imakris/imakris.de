@@ -24,7 +24,9 @@
             --card-bg-color: #2a2a2a;
         }
         
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -59,7 +61,9 @@
             margin-bottom: 0.2em;
         }
 
-        h2 { font-size: 1.8rem; }
+        h2 {
+            font-size: 1.8rem;
+        }
         
         h3 {
             color: var(--header-color);
@@ -74,8 +78,15 @@
             font-weight: 500;
         }
 
-        a:hover { text-decoration: underline; }
-        a:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; border-radius: 2px; }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
         
         header {
             text-align: center;
@@ -95,7 +106,9 @@
             font-size: 1.1rem;
         }
         
-        main { display: block; }
+        main {
+            display: block;
+        }
 
         .portfolio-note {
             font-style: italic;
@@ -121,8 +134,14 @@
             margin-bottom: 1.5em;
         }
 
-        ul { padding-left: 20px; margin-top: 1em; }
-        li { margin-bottom: 0.8rem; }
+        ul {
+            padding-left: 20px;
+            margin-top: 1em;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+        }
         
         footer {
             text-align: center;
@@ -133,11 +152,36 @@
             font-size: 0.9em;
         }
         
-        footer .secondary-nav a { margin: 0 1em; }
-        footer .copyright { margin-top: 1.5em; font-size: 0.8em; color: #777; }
+        footer .secondary-nav a {
+            margin: 0 1em;
+        }
 
-        .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-        .skip-link:focus { position: static; width: auto; height: auto; margin: 1rem auto 0; background: var(--accent-color); color: #000; padding: .4rem .8rem; border-radius: 4px; text-decoration: none; }
+        footer .copyright {
+            margin-top: 1.5em;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-link:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            margin: 1rem auto 0;
+            background: var(--accent-color);
+            color: #000;
+            padding: .4rem .8rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -164,9 +208,9 @@
                 <p>
                     My development philosophy is grounded in creating tangible value. This extends beyond writing clean, maintainable code to include the direct, honest technical advice necessary to ensure a client's goals are met and their investment is respected.
                 </p>
-				<p>
-				    Based in Berlin, I am available for remote contracts, with occasional on-site visits where required.
-				</p>
+                <p>
+                    Based in Berlin, I am available for remote contracts, with occasional on-site visits where required.
+                </p>
             </section>
 
             <section id="portfolio" aria-labelledby="portfolio-title">
@@ -229,7 +273,7 @@
                     <p class="project-meta"><strong>Employer:</strong> NVIDIA (formerly Mental Images)</p>
                     <p>As a Software Engineer within NVIDIA's Mental Images division in Berlin, my work centered on the design, implementation, and leadership of advanced OpenGL rendering technologies for the company's rendering software team.</p>
                     <p>The role involved several key responsibilities that were instrumental in shaping the user-facing components of products like RealityServer:</p>
-                     <ul>
+                    <ul>
                         <li><strong>High-Quality Interactive Renderer:</strong> Design and development of an OpenGL-based interactive renderer that included high-quality, real-time effects such as Screen Space Ambient Occlusion (SSAO), built on the MetaSL shading language.</li>
                         <li><strong>iray Preview Engine:</strong> Development of the high-performance OpenGL-based preview renderer for the physically-based <strong>iray</strong> engine. The technical challenge was to match the visual output of <strong>iray</strong>, while maintaining interactive frame rates.</li>
                         <li><strong>Technical Ownership:</strong> The role included personally leading the maintenance and ongoing development of the group's OpenGL-based rendering technology.</li>
