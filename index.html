@@ -159,12 +159,9 @@
         <main>
             <section id="about">
                 <p>
-                    For the past 20&nbsp;years, my work has focused on building complete, marketable software products, often for specialized hardware. As a solo engineer, I handle the full software stack for scientific, medical, and industrial instruments, from low-level hardware communication to the user interface.
+                    For the past 20&nbsp;years, I have built software for scientific, medical, and industrial instruments, typically as the sole engineer responsible for the full stack, from hardware communication to user interface, working closely with physicists, clinicians, and hardware engineers.
                 </p>
                 <p>
-                    My development philosophy is grounded in creating tangible value. This extends beyond writing clean, maintainable code to include the direct, honest technical advice necessary to ensure a client's goals are met and their investment is respected.
-                </p>
-				<p>
 				    Based in Berlin, I am available for remote contracts, with occasional on-site visits where required.
 				</p>
             </section>
@@ -180,14 +177,13 @@
                 <article class="project-card" aria-labelledby="p1-title">
                     <h3 id="p1-title">Full Software Stack for the hiXAS Laboratory Spectrometer</h3>
                     <p class="project-meta"><strong>Client:</strong> HP Spectroscopy GmbH</p>
-                    <p>HP Spectroscopy required a complete, production-grade software suite for their hiXAS system, a turn-key instrument for laboratory-based X-ray Absorption Spectroscopy (XAS).</p>
-                    <p>The engagement involved a multi-year, sole-developer effort to architect, build, and continuously evolve the entire proprietary software stack for the product.</p>
+                    <p>HP Spectroscopy needed a complete software suite for their hiXAS system, a turn-key instrument for laboratory-based X-ray Absorption Spectroscopy (XAS). I was responsible for the full software stack over several years, working with the company's physicists.</p>
                     <ul>
-                        <li><strong>Full-Stack Development:</strong> The system was built from the ground up as a multi-layered C++ application with a Qt/QML front-end, supported by a Python ecosystem for data analysis scripting.</li>
-                        <li><strong>Complex Hardware Integration:</strong> Core modules were developed to provide robust, low-level control for a diverse set of hardware components, including multiple motor controllers (OWIS, PS90), scientific detectors (DECTRIS, Greateyes), and cameras.</li>
-                        <li><strong>Codebase Health and Longevity:</strong> As the project evolved, a continuous focus was placed on maintaining the long-term health of the codebase. This involved ongoing architectural refinement and a comprehensive effort to identify and resolve systemic issues, such as memory leaks, deadlocks, and race conditions.</li>
-                        <li><strong>High-Performance Module Rewrite:</strong> A critical, third-party Python script for post-acquisition analysis was identified as a major performance bottleneck. A new high-performance analysis module was developed from the ground up to achieve the same scientific objectives. The new implementation <strong>reduced the data processing time by over 90%</strong>.</li>
-                        <li><strong>International Support:</strong> The role included providing expert-level remote diagnostics and support for instruments deployed at research facilities internationally.</li>
+                        <li><strong>Full-Stack Development:</strong> A multi-layered C++ application with a Qt/QML front-end, supported by a Python ecosystem for data analysis scripting.</li>
+                        <li><strong>Hardware Integration:</strong> Low-level control for motor controllers (OWIS, PS90), scientific detectors (DECTRIS, Greateyes), and cameras, developed in coordination with the hardware team.</li>
+                        <li><strong>Long-Term Maintenance:</strong> Ongoing architectural work to keep the codebase healthy as requirements evolved, including identifying and resolving memory leaks, deadlocks, and race conditions.</li>
+                        <li><strong>Performance Optimization:</strong> A third-party Python script for post-acquisition analysis was a bottleneck. I rewrote it as a native module, reducing processing time by over 90%.</li>
+                        <li><strong>International Support:</strong> Remote diagnostics and support for instruments deployed at research facilities internationally, working directly with scientists on-site.</li>
                     </ul>
                     <p>• <strong>Official Product Page:</strong> <a href="https://www.hp-spectroscopy.com/xas-exafs" target="_blank" rel="noopener noreferrer">hiXAS - Laboratory X-ray Absorption Spectrometer</a></p>
                 </article>
@@ -195,15 +191,13 @@
                 <article class="project-card" aria-labelledby="p2-title">
                     <h3 id="p2-title">Commercial Software Suite for Advanced Ultrasonic Sensors</h3>
                     <p class="project-meta"><strong>Client:</strong> Sonotec GmbH</p>
-                    <p>A leader in ultrasonic measurement technology, Sonotec relied on a 20-year-old internal Delphi tool. While functional for R&D, this expert-only software was not user-friendly, maintainable, or suitable for commercial sale. The business objective was to create a modern, robust, and marketable software product to be sold as a complete package with their new line of smart sensors.</p>
-                    <p>The project involved building a new software product from the ground up. The work required a multi-faceted approach, combining comprehensive legacy system analysis with modern application architecture.</p>
+                    <p>Sonotec, a manufacturer of ultrasonic measurement technology, had a 20-year-old internal Delphi tool that worked for R&D but was not suitable for commercial sale. They wanted modern software to sell alongside their new line of smart sensors. I built the replacement from scratch, working with their product and engineering teams to understand both the legacy system and the requirements for the new one.</p>
                     <ul>
-                        <li><strong>Undocumented Protocol Analysis:</strong> The true operational logic was found not in formal documentation but embedded within the undocumented legacy Delphi application. The project therefore began with a fundamental analysis of this codebase to reverse-engineer the memory-map-based communication protocols, which became the essential foundation for the new application.</li>
-                        <li><strong>Modern Multi-Device Architecture:</strong> A new software platform was architected and built using modern C++ and a Qt/QML front-end. Key architectural improvements included designing the system to manage and visualize data from multiple sensors simultaneously, a significant upgrade over the single-device limitation of the legacy tool, and creating a robust, separated C++ communication library to handle all hardware interaction.</li>
-                        <li><strong>User Experience Transformation:</strong> The highly technical workflow of the old tool was translated into an intuitive graphical interface. This work streamlined the entire process of sensor configuration, data acquisition, and real-time visualization, making the technology accessible to a broader user base of lab technicians and scientists.</li>
+                        <li><strong>Legacy Protocol Analysis:</strong> The communication protocols were undocumented; the only reference was the old Delphi source code. I reverse-engineered the memory-map-based protocols from that codebase, which became the foundation for the new application.</li>
+                        <li><strong>Multi-Device Architecture:</strong> The new application (C++, Qt/QML) could manage multiple sensors simultaneously, unlike the legacy single-device tool. A separate communication library handled all hardware interaction.</li>
+                        <li><strong>Usability:</strong> The old tool required expert knowledge. I worked with Sonotec to understand the workflows of their target users (lab technicians and scientists) and designed an interface that made sensor configuration, data acquisition, and visualization straightforward.</li>
                     </ul>
-                    <p>The resulting product, officially branded by the client as SONOflow C3, successfully replaced the internal legacy tool. It served for several years as the company's flagship software for this sensor line, empowering them to sell a complete, user-friendly "smart sensor package" to new markets.</p>
-                    <p>The software is demonstrated in official company materials:</p>
+                    <p>The product, branded SONOflow C3, replaced the internal tool and was used for this sensor line for several years.</p>
                     <p>
                         • <strong>Announcement:</strong> <a href="https://www.sonotec.de/aktuelles/news/nicht-invasive-sonoflow-flow-sensoren-und-sonoflow-c3-software-das-anwenderfreundliche-smart-sensor-paket-zur-applikation-in-labor-40-fe-und-single-use-produktionsumgebungen/" target="_blank" rel="noopener noreferrer">SONOflow C3 Software</a> <br>
                         • <strong>Video Tutorial:</strong> <a href="https://www.youtube.com/watch?v=CIR7O5w5Bjc" target="_blank" rel="noopener noreferrer">SONOflow C0.55 and the C³&nbsp;Software</a>
@@ -211,44 +205,41 @@
                 </article>
                 
                 <article class="project-card" aria-labelledby="p3-title">
-                    <h3 id="p3-title">Expert Maintenance of a Mature E-Learning Authoring Suite</h3>
+                    <h3 id="p3-title">Maintenance of a Mature E-Learning Authoring Suite</h3>
                     <p class="project-meta"><strong>Client:</strong> IMC AG</p>
-                    <p>IMC AG, a leading provider for digital training, needed to ensure the long-term stability and continued relevance of its mature "Content Studio" authoring software. With a large customer base reliant on the product, the core objective was to retain these clients by supporting the existing application while internal teams focused on next-generation platforms.</p>
-                    <p>The engagement centered on sole development ownership of a vast C++ codebase, comparable in scope to major desktop publishing applications and developed over nearly a decade by a large team.</p>
+                    <p>IMC AG needed to keep their "Content Studio" authoring software stable and supported while their internal teams focused on next-generation platforms. The product had a large enterprise customer base that depended on it. I took over maintenance and development of the C++ codebase, a large application built over nearly a decade by a previous team.</p>
                     <ul>
-                        <li><strong>Codebase Stewardship:</strong> The core of the work was to quickly master the large and complex legacy codebase, serving as the single point of contact for all technical maintenance and feature enhancement.</li>
-                        <li><strong>Application Stabilization:</strong> Identifying and fixing numerous deep-rooted bugs that emerged under heavy, enterprise-level usage, which significantly increased the application's reliability.</li>
-                        <li><strong>Continued Development:</strong> Targeted new features were implemented based on specific user requests, extending the product's commercial lifecycle and ensuring it remained valuable to its user base.</li>
+                        <li><strong>Codebase Takeover:</strong> Learning a large, unfamiliar codebase quickly enough to become the primary contact for technical issues and feature requests.</li>
+                        <li><strong>Stabilization:</strong> Fixing deep-rooted bugs that surfaced under heavy enterprise usage, working with customer support to understand and reproduce reported issues.</li>
+                        <li><strong>Feature Development:</strong> Implementing new features based on requests from enterprise customers, coordinated through IMC's product and support teams.</li>
                     </ul>
-                    <p>The work successfully extended the product's commercial lifecycle during a critical period. This ensured business continuity and allowed the company to retain its customer base while internal teams focused on new development. The professional scope of the application is demonstrated in the company's official library of tutorials:</p>
+                    <p>This arrangement let IMC maintain their existing customer relationships while focusing internal resources elsewhere.</p>
                     <p>• <strong>Tutorial Playlist:</strong> <a href="https://www.youtube.com/playlist?list=PL9Lm7IHzcJree12lHMa8neIL-gicZ2NYL" target="_blank" rel="noopener noreferrer">"Content Studio Tutorials" by IMC AG</a></p>
                 </article>
 
                 <article class="project-card" aria-labelledby="p4-title">
                     <h3 id="p4-title">Interactive OpenGL Rendering Engines &amp; Systems</h3>
                     <p class="project-meta"><strong>Employer:</strong> NVIDIA (formerly Mental Images)</p>
-                    <p>As a Software Engineer within NVIDIA's Mental Images division in Berlin, my work centered on the design, implementation, and leadership of advanced OpenGL rendering technologies for the company's rendering software team.</p>
-                    <p>The role involved several key responsibilities that were instrumental in shaping the user-facing components of products like RealityServer:</p>
+                    <p>As part of the rendering software team at NVIDIA's Mental Images division in Berlin, I worked on OpenGL-based rendering technology for products including RealityServer.</p>
                      <ul>
-                        <li><strong>High-Quality Interactive Renderer:</strong> Design and development of an OpenGL-based interactive renderer that included high-quality, real-time effects such as Screen Space Ambient Occlusion (SSAO), built on the MetaSL shading language.</li>
-                        <li><strong>iray Preview Engine:</strong> Development of the high-performance OpenGL-based preview renderer for the physically-based <strong>iray</strong> engine. The technical challenge was to match the visual output of <strong>iray</strong>, while maintaining interactive frame rates.</li>
-                        <li><strong>Technical Ownership:</strong> The role included personally leading the maintenance and ongoing development of the group's OpenGL-based rendering technology.</li>
-                        <li><strong>Cross-Platform GPU Systems:</strong> Design and implementation of a critical, cross-platform system for the automatic detection and enumeration of available GPUs on Windows, Linux, and Mac OS X.</li>
+                        <li><strong>Interactive Renderer:</strong> Developed an OpenGL-based interactive renderer with real-time effects (SSAO and others), built on the MetaSL shading language.</li>
+                        <li><strong>iray Preview Engine:</strong> Built the OpenGL preview renderer for the physically-based <strong>iray</strong> engine. The challenge was approximating iray's output at interactive frame rates.</li>
+                        <li><strong>OpenGL Subsystem:</strong> Took responsibility for the team's OpenGL rendering code, maintaining and extending it as product requirements evolved.</li>
+                        <li><strong>Cross-Platform GPU Detection:</strong> Implemented a cross-platform system for detecting and enumerating available GPUs on Windows, Linux, and Mac OS X.</li>
                     </ul>
-                    <p>This work was crucial for delivering the interactive, "instant-on" user experience for a computationally intensive rendering platform. Its impact is documented in archival industry articles:</p>
+                    <p>This work provided the interactive preview experience for a computationally intensive rendering platform.</p>
                     <p>• <strong>Industry Coverage:</strong> <a href="https://www.hpcwire.com/2010/07/26/nvidia_serves_up_reality_gpu-style/" target="_blank" rel="noopener noreferrer">HPCwire: "NVIDIA Serves Up Reality, GPU-Style"</a></p>
                 </article>
 
                 <article class="project-card" aria-labelledby="p5-title">
-                    <h3 id="p5-title">Innovative Sketch-Based UI for DICOM Hanging Protocols</h3>
+                    <h3 id="p5-title">Sketch-Based UI for DICOM Hanging Protocols</h3>
                     <p class="project-meta"><strong>Employer:</strong> Digital Medics GmbH (Defunct Startup)</p>
-                    <p>At the medical imaging startup Digital Medics, the work focused on fundamentally rethinking and simplifying a core workflow for radiologists. In digital radiology, setting up "hanging protocols", the on-screen layout of different medical image series, was a rigid and menu-driven process. The goal was to replace this cumbersome workflow with a fast, intuitive, and user-centric solution.</p>
-                    <p>A pioneering feature was developed for the company's "VivoLab" DICOM software, designed to leverage the natural interaction of a Wacom Cintiq pen display.</p>
+                    <p>At the medical imaging startup Digital Medics, I worked on the "VivoLab" DICOM software. One problem we addressed was the setup of "hanging protocols" (the on-screen layout of medical image series), which was typically a rigid, menu-driven process. Working with radiologists and the Wacom partnership team, I developed a sketch-based alternative designed for pen displays.</p>
                     <ul>
-                        <li><strong>Sketch-to-Grid Engine:</strong> This key feature allowed a radiologist to simply draw lines on a blank canvas. The software would intelligently interpret the freehand strokes and instantly generate the corresponding grid of panels for image display.</li>
-                        <li><strong>Fluid Workflow:</strong> The sketch-based setup was integrated with drag-and-drop assignment of imaging modalities and a one-click application, enabling clinicians to create complex, bespoke layouts in seconds.</li>
+                        <li><strong>Sketch-to-Grid Engine:</strong> The radiologist draws lines on a blank canvas; the software interprets the strokes and generates the corresponding grid of panels for image display.</li>
+                        <li><strong>Workflow Integration:</strong> Combined with drag-and-drop assignment of imaging modalities and one-click application, allowing clinicians to create custom layouts quickly.</li>
                     </ul>
-                    <p>This feature was a forward-thinking innovation in user experience for clinical software in its era. It is publicly demonstrated in an official case study video produced by Wacom:</p>
+                    <p>The feature is demonstrated in an official case study video produced by Wacom:</p>
                     <p>• <strong>Case Study Video:</strong> <a href="https://www.youtube.com/watch?v=cOIuM2rxR1k" target="_blank" rel="noopener noreferrer">Wacom Cintiq in Radio Oncology</a></p>
                 </article>
                 
