@@ -1,300 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ioannis Makris - Software Engineer & Consultant</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>Ioannis Makris - Software Engineer &amp; Consultant</title>
 
-    <!-- SEO & Social Media Meta Tags -->
     <meta name="description" content="Ioannis Makris, a C++/Qt software engineer and consultant based in Berlin, with 20 years of experience building full-stack applications for scientific, medical, and industrial instruments.">
-    <meta property="og:title" content="Ioannis Makris - Software Engineer & Consultant">
+    <meta property="og:title" content="Ioannis Makris - Software Engineer &amp; Consultant">
     <meta property="og:description" content="Specializing in full-stack C++/Qt applications for scientific, medical, and industrial hardware.">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ioannis Makris">
 
-    <!-- Embedded SVG Favicon (Correctly Encoded) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231e1e1e' stroke='%23444' stroke-width='2' /%3E%3Ctext x='50%25' y='62%25' font-size='18' text-anchor='middle' fill='%236fa9ff' font-family='-apple-system, sans-serif' font-weight='600'%3EIM%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23111' stroke='%233a3a3a' stroke-width='1.5' /%3E%3Ctext x='50%25' y='62%25' font-size='14' text-anchor='middle' fill='%236fa8c7' font-family='IBM Plex Sans, system-ui, sans-serif' font-weight='600'%3EIM%3C/text%3E%3C/svg%3E">
 
-    <style>
-        :root {
-            --bg-color: #1e1e1e;
-            --text-color: #d4d4d4;
-            --header-color: #ffffff;
-            --accent-color: #6fa9ff;
-            --border-color: #444;
-            --card-bg-color: #2a2a2a;
-        }
-        
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            max-width: 800px;
-            width: 100%;
-            padding: 2rem 2.5rem;
-        }
-        
-        h1, h2 {
-            color: var(--header-color);
-            font-weight: 600;
-            margin-top: 2.5em;
-            margin-bottom: 1em;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.4em;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            border-bottom: none;
-            margin-top: 0;
-            margin-bottom: 0.2em;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-        }
-        
-        h3 {
-            color: var(--header-color);
-            font-size: 1.5rem; /* Increased size for better hierarchy */
-            margin-top: 0;
-            margin-bottom: 0.5em;
-        }
-
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        a:focus-visible {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 3px;
-            border-radius: 2px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-        
-        header .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-        }
-
-        nav.top-nav a {
-            display: inline-block;
-            padding: 0.3rem 0.6rem;
-            margin: 0 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        main {
-            display: block;
-        }
-
-        .portfolio-note {
-            font-style: italic;
-            border-left: 3px solid var(--border-color);
-            padding: 0.1em 1.5em;
-            margin: 2.5em 0;
-            color: #aaa;
-        }
-        
-        .project-card {
-            background-color: var(--card-bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 1.5rem 2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .project-meta {
-            color: #aaa;
-            font-size: 0.9rem;
-            font-style: italic;
-            margin-top: 0;
-            margin-bottom: 1.5em;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin-top: 1em;
-        }
-
-        li {
-            margin-bottom: 0.8rem;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: #aaa;
-            font-size: 0.9em;
-        }
-        
-        footer .secondary-nav a {
-            margin: 0 1em;
-        }
-
-        footer .copyright {
-            margin-top: 1.5em;
-            font-size: 0.8em;
-            color: #777;
-        }
-
-        .skip-link {
-            position: absolute;
-            left: -9999px;
-            top: auto;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
-
-        .skip-link:focus {
-            position: static;
-            width: auto;
-            height: auto;
-            margin: 1rem auto 0;
-            background: var(--accent-color);
-            color: #000;
-            padding: .4rem .8rem;
-            border-radius: 4px;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=JetBrains+Mono:wght@400&display=swap">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="#about" class="skip-link">Skip to main content</a>
-    <div class="container">
-        
-        <header>
-            <h1>Ioannis Makris</h1>
-            <p class="subtitle">Software Engineer &amp; Consultant · Berlin, Germany</p>
-            <nav class="top-nav" aria-label="Main Navigation">
-                <a href="Makris_CV_EN_2025.pdf" target="_blank" rel="noopener noreferrer">Full CV</a> 
-                <a href="mailto:info@imakris.de">Email</a> 
+    <a href="#main-content" class="skip-nav">Skip to content</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="Makris_CV_EN_2025.pdf" target="_blank" rel="noopener noreferrer">CV</a>
                 <a href="https://github.com/imakris" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="https://www.linkedin.com/in/makris/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://www.freelance.de/Freelancer/176333" target="_blank" rel="noopener noreferrer">freelance.de (testimonials)</a>
+                <a href="https://www.freelance.de/Freelancer/176333" target="_blank" rel="noopener noreferrer">freelance.de</a>
+                <a href="contact/index.html">Contact</a>
             </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <header class="page-header">
+            <p class="page-kicker">SOFTWARE ENGINEER &middot; CONSULTANT</p>
+            <h1 class="page-title">Ioannis Makris</h1>
+            <p class="page-tagline">
+                C++/Qt full-stack engineering for scientific, medical, and industrial
+                instruments. Based in Berlin, Germany.
+            </p>
         </header>
 
-        <main>
-            <section id="about">
-                <p>
-                    For the past 20&nbsp;years, I have built software for scientific, medical, and industrial instruments, typically as the sole engineer responsible for the full stack, from hardware communication to user interface, working closely with physicists, clinicians, and hardware engineers.
-                </p>
-                <p>
-                    Based in Berlin, I am available for remote contracts, with occasional on-site visits where required.
-                </p>
-            </section>
+        <section class="intro-card" aria-label="About">
+            <p>
+                For the past 20&nbsp;years, I have built software for scientific, medical, and industrial instruments, typically as the sole engineer responsible for the full stack, from hardware communication to user interface, working closely with physicists, clinicians, and hardware engineers.
+            </p>
+            <p>
+                Based in Berlin, I am available for remote contracts, with occasional on-site visits where required.
+            </p>
+        </section>
 
-            <section id="portfolio" aria-labelledby="portfolio-title">
-                <h2 id="portfolio-title">Selected Projects</h2>
-                
-                <div class="portfolio-note">
-                    <p><strong>A Note on This Portfolio</strong></p>
-                    <p>The projects below represent work where aspects of the final product have been featured in public client materials, press coverage, or official documentation. While much of specialized software development remains confidential, these examples demonstrate the scope and nature of my engineering work.</p>
-                </div>
-                
+        <section aria-labelledby="portfolio-title">
+            <h2 id="portfolio-title" class="section-title">Selected projects</h2>
+            <p class="section-tagline">
+                The projects below represent work where aspects of the final product have been featured in public client materials, press coverage, or official documentation. While much of specialised software development remains confidential, these examples demonstrate the scope and nature of my engineering work.
+            </p>
+
+            <div class="projects">
+
                 <article class="project-card" aria-labelledby="p1-title">
-                    <h3 id="p1-title">Full Software Stack for the hiXAS Laboratory Spectrometer</h3>
-                    <p class="project-meta"><strong>Client:</strong> HP Spectroscopy GmbH</p>
-                    <p>HP Spectroscopy needed a complete software suite for their hiXAS system, a turn-key instrument for laboratory-based X-ray Absorption Spectroscopy (XAS). I was responsible for the full software stack over several years, working with the company's physicists.</p>
+                    <p class="project-kicker">SCIENTIFIC INSTRUMENT</p>
+                    <h3 id="p1-title">Full software stack for the hiXAS laboratory spectrometer</h3>
+                    <p class="project-meta">Client: HP Spectroscopy GmbH</p>
+                    <p>
+                        HP Spectroscopy needed a complete software suite for their hiXAS system, a turn-key instrument for laboratory-based X-ray Absorption Spectroscopy (XAS). I was responsible for the full software stack over several years, working with the company's physicists.
+                    </p>
                     <ul>
-                        <li><strong>Full-Stack Development:</strong> A multi-layered C++ application with a Qt/QML front-end, supported by a Python ecosystem for data analysis scripting.</li>
-                        <li><strong>Hardware Integration:</strong> Low-level control for motor controllers (OWIS, PS90), scientific detectors (DECTRIS, Greateyes), and cameras, developed in coordination with the hardware team.</li>
-                        <li><strong>Long-Term Maintenance:</strong> Ongoing architectural work to keep the codebase healthy as requirements evolved, including identifying and resolving memory leaks, deadlocks, and race conditions.</li>
-                        <li><strong>Performance Optimization:</strong> A third-party Python script for post-acquisition analysis was a bottleneck. I rewrote it as a native module, reducing processing time by over 90%.</li>
-                        <li><strong>International Support:</strong> Remote diagnostics and support for instruments deployed at research facilities internationally, working directly with scientists on-site.</li>
+                        <li><strong>Full-stack development:</strong> A multi-layered C++ application with a Qt/QML front-end, supported by a Python ecosystem for data analysis scripting.</li>
+                        <li><strong>Hardware integration:</strong> Low-level control for motor controllers (OWIS, PS90), scientific detectors (DECTRIS, Greateyes), and cameras, developed in coordination with the hardware team.</li>
+                        <li><strong>Long-term maintenance:</strong> Ongoing architectural work to keep the codebase healthy as requirements evolved, including identifying and resolving memory leaks, deadlocks, and race conditions.</li>
+                        <li><strong>Performance optimisation:</strong> A third-party Python script for post-acquisition analysis was a bottleneck. I rewrote it as a native module, reducing processing time by over 90%.</li>
+                        <li><strong>International support:</strong> Remote diagnostics and support for instruments deployed at research facilities internationally, working directly with scientists on-site.</li>
                     </ul>
-                    <p>• <strong>Official Product Page:</strong> <a href="https://www.hp-spectroscopy.com/xas-exafs" target="_blank" rel="noopener noreferrer">hiXAS - Laboratory X-ray Absorption Spectrometer</a></p>
+                    <div class="project-links">
+                        <p><span class="label">Product page</span> <a href="https://www.hp-spectroscopy.com/xas-exafs" target="_blank" rel="noopener noreferrer">hiXAS - Laboratory X-ray Absorption Spectrometer</a></p>
+                    </div>
                 </article>
 
                 <article class="project-card" aria-labelledby="p2-title">
-                    <h3 id="p2-title">Commercial Software Suite for Advanced Ultrasonic Sensors</h3>
-                    <p class="project-meta"><strong>Client:</strong> Sonotec GmbH</p>
-                    <p>Sonotec, a manufacturer of ultrasonic measurement technology, had a 20-year-old internal Delphi tool that worked for R&D but was not suitable for commercial sale. They wanted modern software to sell alongside their new line of smart sensors. I built the replacement from scratch, working with their product and engineering teams to understand both the legacy system and the requirements for the new one.</p>
+                    <p class="project-kicker">INDUSTRIAL SENSOR SUITE</p>
+                    <h3 id="p2-title">Commercial software suite for advanced ultrasonic sensors</h3>
+                    <p class="project-meta">Client: Sonotec GmbH</p>
+                    <p>
+                        Sonotec, a manufacturer of ultrasonic measurement technology, had a 20-year-old internal Delphi tool that worked for R&amp;D but was not suitable for commercial sale. They wanted modern software to sell alongside their new line of smart sensors. I built the replacement from scratch, working with their product and engineering teams to understand both the legacy system and the requirements for the new one.
+                    </p>
                     <ul>
-                        <li><strong>Legacy Protocol Analysis:</strong> The communication protocols were undocumented; the only reference was the old Delphi source code. I reverse-engineered the memory-map-based protocols from that codebase, which became the foundation for the new application.</li>
-                        <li><strong>Multi-Device Architecture:</strong> The new application (C++, Qt/QML) could manage multiple sensors simultaneously, unlike the legacy single-device tool. A separate communication library handled all hardware interaction.</li>
-                        <li><strong>Usability:</strong> The old tool required expert knowledge. I worked with Sonotec to understand the workflows of their target users (lab technicians and scientists) and designed an interface that made sensor configuration, data acquisition, and visualization straightforward.</li>
+                        <li><strong>Legacy protocol analysis:</strong> The communication protocols were undocumented; the only reference was the old Delphi source code. I reverse-engineered the memory-map-based protocols from that codebase, which became the foundation for the new application.</li>
+                        <li><strong>Multi-device architecture:</strong> The new application (C++, Qt/QML) could manage multiple sensors simultaneously, unlike the legacy single-device tool. A separate communication library handled all hardware interaction.</li>
+                        <li><strong>Usability:</strong> The old tool required expert knowledge. I worked with Sonotec to understand the workflows of their target users (lab technicians and scientists) and designed an interface that made sensor configuration, data acquisition, and visualisation straightforward.</li>
                     </ul>
                     <p>The product, branded SONOflow C3, replaced the internal tool and was used for this sensor line for several years.</p>
-                    <p>
-                        • <strong>Announcement:</strong> <a href="https://www.sonotec.de/aktuelles/news/nicht-invasive-sonoflow-flow-sensoren-und-sonoflow-c3-software-das-anwenderfreundliche-smart-sensor-paket-zur-applikation-in-labor-40-fe-und-single-use-produktionsumgebungen/" target="_blank" rel="noopener noreferrer">SONOflow C3 Software</a> <br>
-                        • <strong>Video Tutorial:</strong> <a href="https://www.youtube.com/watch?v=CIR7O5w5Bjc" target="_blank" rel="noopener noreferrer">SONOflow C0.55 and the C³&nbsp;Software</a>
-                    </p>
+                    <div class="project-links">
+                        <p><span class="label">Announcement</span> <a href="https://www.sonotec.de/aktuelles/news/nicht-invasive-sonoflow-flow-sensoren-und-sonoflow-c3-software-das-anwenderfreundliche-smart-sensor-paket-zur-applikation-in-labor-40-fe-und-single-use-produktionsumgebungen/" target="_blank" rel="noopener noreferrer">SONOflow C3 software</a></p>
+                        <p><span class="label">Video tutorial</span> <a href="https://www.youtube.com/watch?v=CIR7O5w5Bjc" target="_blank" rel="noopener noreferrer">SONOflow C0.55 and the C&sup3;&nbsp;software</a></p>
+                    </div>
                 </article>
-                
+
                 <article class="project-card" aria-labelledby="p3-title">
-                    <h3 id="p3-title">Maintenance of a Mature E-Learning Authoring Suite</h3>
-                    <p class="project-meta"><strong>Client:</strong> IMC AG</p>
-                    <p>IMC AG needed to keep their "Content Studio" authoring software stable and supported while their internal teams focused on next-generation platforms. The product had a large enterprise customer base that depended on it. I took over maintenance and development of the C++ codebase, a large application built over nearly a decade by a previous team.</p>
+                    <p class="project-kicker">ENTERPRISE SOFTWARE</p>
+                    <h3 id="p3-title">Maintenance of a mature e-learning authoring suite</h3>
+                    <p class="project-meta">Client: IMC AG</p>
+                    <p>
+                        IMC AG needed to keep their "Content Studio" authoring software stable and supported while their internal teams focused on next-generation platforms. The product had a large enterprise customer base that depended on it. I took over maintenance and development of the C++ codebase, a large application built over nearly a decade by a previous team.
+                    </p>
                     <ul>
-                        <li><strong>Codebase Takeover:</strong> Learning a large, unfamiliar codebase quickly enough to become the primary contact for technical issues and feature requests.</li>
-                        <li><strong>Stabilization:</strong> Fixing deep-rooted bugs that surfaced under heavy enterprise usage, working with customer support to understand and reproduce reported issues.</li>
-                        <li><strong>Feature Development:</strong> Implementing new features based on requests from enterprise customers, coordinated through IMC's product and support teams.</li>
+                        <li><strong>Codebase takeover:</strong> Learning a large, unfamiliar codebase quickly enough to become the primary contact for technical issues and feature requests.</li>
+                        <li><strong>Stabilisation:</strong> Fixing deep-rooted bugs that surfaced under heavy enterprise usage, working with customer support to understand and reproduce reported issues.</li>
+                        <li><strong>Feature development:</strong> Implementing new features based on requests from enterprise customers, coordinated through IMC's product and support teams.</li>
                     </ul>
                     <p>This arrangement let IMC maintain their existing customer relationships while focusing internal resources elsewhere.</p>
-                    <p>• <strong>Tutorial Playlist:</strong> <a href="https://www.youtube.com/playlist?list=PL9Lm7IHzcJree12lHMa8neIL-gicZ2NYL" target="_blank" rel="noopener noreferrer">"Content Studio Tutorials" by IMC AG</a></p>
+                    <div class="project-links">
+                        <p><span class="label">Tutorial playlist</span> <a href="https://www.youtube.com/playlist?list=PL9Lm7IHzcJree12lHMa8neIL-gicZ2NYL" target="_blank" rel="noopener noreferrer">"Content Studio Tutorials" by IMC AG</a></p>
+                    </div>
                 </article>
 
                 <article class="project-card" aria-labelledby="p4-title">
-                    <h3 id="p4-title">Interactive OpenGL Rendering Engines &amp; Systems</h3>
-                    <p class="project-meta"><strong>Employer:</strong> NVIDIA (formerly Mental Images)</p>
-                    <p>As part of the rendering software team at NVIDIA's Mental Images division in Berlin, I worked on OpenGL-based rendering technology for products including RealityServer.</p>
+                    <p class="project-kicker">REAL-TIME GRAPHICS</p>
+                    <h3 id="p4-title">Interactive OpenGL rendering engines &amp; systems</h3>
+                    <p class="project-meta">Employer: NVIDIA (formerly Mental Images)</p>
+                    <p>
+                        As part of the rendering software team at NVIDIA's Mental Images division in Berlin, I worked on OpenGL-based rendering technology for products including RealityServer.
+                    </p>
                     <ul>
-                        <li><strong>Interactive Renderer:</strong> Developed an OpenGL-based interactive renderer with real-time effects (SSAO and others), built on the MetaSL shading language.</li>
-                        <li><strong>iray Preview Engine:</strong> Built the OpenGL preview renderer for the physically-based <strong>iray</strong> engine. The challenge was approximating iray's output at interactive frame rates.</li>
-                        <li><strong>OpenGL Subsystem:</strong> Took responsibility for the team's OpenGL rendering code, maintaining and extending it as product requirements evolved.</li>
-                        <li><strong>Cross-Platform GPU Detection:</strong> Implemented a cross-platform system for detecting and enumerating available GPUs on Windows, Linux, and Mac OS X.</li>
+                        <li><strong>Interactive renderer:</strong> Developed an OpenGL-based interactive renderer with real-time effects (SSAO and others), built on the MetaSL shading language.</li>
+                        <li><strong>iray preview engine:</strong> Built the OpenGL preview renderer for the physically-based <strong>iray</strong> engine. The challenge was approximating iray's output at interactive frame rates.</li>
+                        <li><strong>OpenGL subsystem:</strong> Took responsibility for the team's OpenGL rendering code, maintaining and extending it as product requirements evolved.</li>
+                        <li><strong>Cross-platform GPU detection:</strong> Implemented a cross-platform system for detecting and enumerating available GPUs on Windows, Linux, and Mac OS X.</li>
                     </ul>
                     <p>This work provided the interactive preview experience for a computationally intensive rendering platform.</p>
-                    <p>• <strong>Industry Coverage:</strong> <a href="https://www.hpcwire.com/2010/07/26/nvidia_serves_up_reality_gpu-style/" target="_blank" rel="noopener noreferrer">HPCwire: "NVIDIA Serves Up Reality, GPU-Style"</a></p>
+                    <div class="project-links">
+                        <p><span class="label">Industry coverage</span> <a href="https://www.hpcwire.com/2010/07/26/nvidia_serves_up_reality_gpu-style/" target="_blank" rel="noopener noreferrer">HPCwire: "NVIDIA Serves Up Reality, GPU-Style"</a></p>
+                    </div>
                 </article>
 
                 <article class="project-card" aria-labelledby="p5-title">
-                    <h3 id="p5-title">Sketch-Based UI for DICOM Hanging Protocols</h3>
-                    <p class="project-meta"><strong>Employer:</strong> Digital Medics GmbH (Defunct Startup)</p>
-                    <p>At the medical imaging startup Digital Medics, I worked on the "VivoLab" DICOM software. One problem we addressed was the setup of "hanging protocols" (the on-screen layout of medical image series), which was typically a rigid, menu-driven process. Working with radiologists and the Wacom partnership team, I developed a sketch-based alternative designed for pen displays.</p>
+                    <p class="project-kicker">MEDICAL IMAGING</p>
+                    <h3 id="p5-title">Sketch-based UI for DICOM hanging protocols</h3>
+                    <p class="project-meta">Employer: Digital Medics GmbH (defunct startup)</p>
+                    <p>
+                        At the medical imaging startup Digital Medics, I worked on the "VivoLab" DICOM software. One problem we addressed was the setup of "hanging protocols" (the on-screen layout of medical image series), which was typically a rigid, menu-driven process. Working with radiologists and the Wacom partnership team, I developed a sketch-based alternative designed for pen displays.
+                    </p>
                     <ul>
-                        <li><strong>Sketch-to-Grid Engine:</strong> The radiologist draws lines on a blank canvas; the software interprets the strokes and generates the corresponding grid of panels for image display.</li>
-                        <li><strong>Workflow Integration:</strong> Combined with drag-and-drop assignment of imaging modalities and one-click application, allowing clinicians to create custom layouts quickly.</li>
+                        <li><strong>Sketch-to-grid engine:</strong> The radiologist draws lines on a blank canvas; the software interprets the strokes and generates the corresponding grid of panels for image display.</li>
+                        <li><strong>Workflow integration:</strong> Combined with drag-and-drop assignment of imaging modalities and one-click application, allowing clinicians to create custom layouts quickly.</li>
                     </ul>
                     <p>The feature is demonstrated in an official case study video produced by Wacom:</p>
-                    <p>• <strong>Case Study Video:</strong> <a href="https://www.youtube.com/watch?v=cOIuM2rxR1k" target="_blank" rel="noopener noreferrer">Wacom Cintiq in Radio Oncology</a></p>
+                    <div class="project-links">
+                        <p><span class="label">Case study video</span> <a href="https://www.youtube.com/watch?v=cOIuM2rxR1k" target="_blank" rel="noopener noreferrer">Wacom Cintiq in Radio Oncology</a></p>
+                    </div>
                 </article>
-                
-            </section>
-        </main>
-        
-        <footer>
-            <p class="copyright">&copy; 2024 Ioannis Makris</p>
-        </footer>
 
-    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-bottom">
+                &copy; 2026 Ioannis Makris &middot; Berlin, Germany
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
